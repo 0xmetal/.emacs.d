@@ -1,0 +1,45 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/" . "marcos/")
+ ("/home/marcos/Documents/" . "EmacsBackup/")
+ ("/home/marcos/" . "Documents/")
+ ("/sudo:arch:/etc/" . "pacman.d/")
+ ("/sudo:arch:/" . "etc/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/marcos/.emacs.d/"
+ "/home/marcos/Documents/EmacsBackup/"
+ "/home/marcos/Documents/emacs/"
+ "/home/marcos/Documents/emacs_backup/"
+ "/sudo:arch:/etc/pacman.d/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "init.el"
+ "mirrorlist"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/marcos/.emacs.d/" (24399 38042 829797 27000) "auto-save-list/" "../" "session.107b1e8ba08f318db915990039494903400000079910071" "smex-items" "recentf~" "tramp" "recentf" "elpa/" "init.el" "./" "init.el~" "ido.last")
+
+ ("/home/marcos/" (24399 12034 242182 851000) ".zcompdump" ".zdirs" "../" "Downloads/" "Documents/" "Pictures/" "Desktop/" ".local/" ".zshrc" "Public/" "./" ".emacs.d/" ".zsh_history" ".config/" ".cache/" "Videos/" ".pki/" "Templates/" "Music/")
+
+ ("/home/marcos/Documents/EmacsBackup/" (24399 9556 322092 773000) "auto-save-list/" "../" "session.107b1e8ba08f318db915990039494903400000079910071" "smex-items" "recentf~" "tramp" "recentf" "elpa/" "init.el" "./" "init.el~" "ido.last")
+
+ ("/home/marcos/Documents/" (24399 9556 305426 106000) "../" "EmacsBackup/" "./")
+
+ ("/home/marcos/Documents/emacs/" (24399 3643 475211 446000) "auto-save-list/" "../" "session.107b1e8ba08f318db915990039494903400000079910071" "smex-items" "recentf~" "tramp" "recentf" "elpa/" "init.el" "./" "init.el~" "ido.last")
+
+ ("/home/marcos/Documents/emacs_backup/" (24399 1156 661788 415000) "auto-save-list/" "../" "session.107b1e8ba08f318db915990039494903400000079910071" "recentf~" "recentf" "elpa/" "init.el" "./" ".emacs.d/" "init.el~")
+
+ ("/home/" (24398 56579 58254 818000) "../" ".zshrc" "marcos/" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
