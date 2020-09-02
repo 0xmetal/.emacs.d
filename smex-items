@@ -1,25 +1,25 @@
 
 ;; ----- smex-history -----
 (
- package-install
- nyan-mode
- eval-buffer
  customize
  customize-themes
+ eval-buffer
+ package-install
+ nyan-mode
  show-paren-mode
  rainbow-delimiters-mode
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 9)
+ (eval-buffer . 10)
  (dashboard-return . 1)
- (customize-themes . 4)
+ (customize-themes . 6)
  (rainbow-delimiters-mode . 2)
  (show-paren-mode . 2)
  (customize-group . 1)
- (customize . 1)
- (package-install . 3)
+ (customize . 2)
+ (package-install . 5)
  (nyan-mode . 3)
  (nyan-start-animation . 1)
  (nyan-toggle-wavy-trail . 1)

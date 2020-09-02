@@ -12,6 +12,8 @@
 ;; ----- ido-work-directory-list -----
 (
  "/home/marcos/.emacs.d/"
+ "/home/marcos/Documents/"
+ "/home/marcos/code/"
  "/home/marcos/Documents/EmacsBackup/"
  "/home/marcos/Documents/emacs/"
  "/home/marcos/Documents/emacs_backup/"
@@ -21,18 +23,22 @@
 ;; ----- ido-work-file-list -----
 (
  "init.el"
+ "test.org"
+ "tutorial2.go"
  "mirrorlist"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/marcos/.emacs.d/" (24399 38042 829797 27000) "auto-save-list/" "../" "session.107b1e8ba08f318db915990039494903400000079910071" "smex-items" "recentf~" "tramp" "recentf" "elpa/" "init.el" "./" "init.el~" "ido.last")
+ ("/home/marcos/.emacs.d/" (24400 30271 85606 163000) "auto-save-list/" "../" "session.107b1e8ba08f318db915990039494903400000079910071" "smex-items" "LICENSE" "recentf~" "tramp" "recentf" "elpa/" "init.el" ".git/" "./" "README.md" "init.el~" "ido.last")
 
- ("/home/marcos/" (24399 12034 242182 851000) ".zcompdump" ".zdirs" "../" "Downloads/" "Documents/" "Pictures/" "Desktop/" ".local/" ".zshrc" "Public/" "./" ".emacs.d/" ".zsh_history" ".config/" ".cache/" "Videos/" ".pki/" "Templates/" "Music/")
+ ("/home/marcos/" (24400 28651 445547 80000) ".zcompdump" ".zdirs" "../" "Downloads/" "emacs/" ".gnupg/" "Documents/" "Pictures/" ".gitconfig" "Desktop/" ".local/" ".zshrc" "Public/" "./" ".emacs.d/" ".zsh_history" ".config/" ".cache/" "Videos/" ".pki/" "Templates/" "Music/" "code/")
+
+ ("/home/marcos/Documents/" (24400 13473 374993 576000) "../" "EmacsBackup/" "./" "test.org")
+
+ ("/home/marcos/code/" (24400 24432 902059 602000) "../" "tutorial2.go" "tutorial.go" "./")
 
  ("/home/marcos/Documents/EmacsBackup/" (24399 9556 322092 773000) "auto-save-list/" "../" "session.107b1e8ba08f318db915990039494903400000079910071" "smex-items" "recentf~" "tramp" "recentf" "elpa/" "init.el" "./" "init.el~" "ido.last")
-
- ("/home/marcos/Documents/" (24399 9556 305426 106000) "../" "EmacsBackup/" "./")
 
  ("/home/marcos/Documents/emacs/" (24399 3643 475211 446000) "auto-save-list/" "../" "session.107b1e8ba08f318db915990039494903400000079910071" "smex-items" "recentf~" "tramp" "recentf" "elpa/" "init.el" "./" "init.el~" "ido.last")
 
