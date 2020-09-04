@@ -10,8 +10,8 @@
 
 ;; scrolling
 (setq scroll-conservatively 10000)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil)
 
 ;; set font
 (set-frame-font "mononoki 13" nil t)
@@ -31,7 +31,8 @@
 (use-package rainbow-delimiters
   :ensure t
   :init
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+  (add-hook 'prog-mode-hook #
+	    'rainbow-delimiters-mode))
 (define-globalized-minor-mode global-highlight-parentheses-mode
   highlight-parentheses-mode
   (lambda ()
