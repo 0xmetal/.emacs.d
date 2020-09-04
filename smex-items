@@ -1,27 +1,43 @@
 
 ;; ----- smex-history -----
 (
- customize
+ magit-push
  customize-themes
- eval-buffer
+ doom-modeline-mode
  package-install
- nyan-mode
- show-paren-mode
- rainbow-delimiters-mode
+ yas-describe-tables
+ help-with-tutorial
+ equake-mode
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 10)
+ (eval-buffer . 12)
  (dashboard-return . 1)
- (customize-themes . 6)
+ (customize-themes . 19)
  (rainbow-delimiters-mode . 2)
  (show-paren-mode . 2)
  (customize-group . 1)
- (customize . 2)
- (package-install . 5)
- (nyan-mode . 3)
+ (customize . 3)
+ (package-install . 14)
+ (nyan-mode . 6)
  (nyan-start-animation . 1)
  (nyan-toggle-wavy-trail . 1)
  (nyan-start-music . 3)
+ (magit-status . 2)
+ (highlight-lines-matching-regexp . 1)
+ (highlight-parentheses-mode . 1)
+ (menu-set-font . 6)
+ (yas-minor-mode-on . 1)
+ (yas-describe-tables . 6)
+ (yas-new-snippet . 2)
+ (snippet-mode . 1)
+ (yas-reload-all . 1)
+ (doom-modeline-mode . 14)
+ (evil-avy-goto-char . 1)
+ (evil-buffer . 6)
+ (equake--launch-shell . 3)
+ (equake-mode . 1)
+ (help-with-tutorial . 1)
+ (magit-push . 1)
 )

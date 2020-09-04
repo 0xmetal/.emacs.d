@@ -1,0 +1,2 @@
+;;; Generated package description from /home/marcos/.emacs.d/elpa/equake-20200824.1549/equake.el  -*- no-byte-compile: t -*-
+(define-package "equake" "20200824.1549" "Drop-down console for (e)shell & terminal emulation" '((emacs "26.1") (dash "2.14.1")) :commit "b0a5e334a7ccf69b837656c8a91c2e9e254e4c76" :keywords '("convenience" "frames" "terminals" "tools" "window-system") :authors '(("Benjamin Slade" . "slade@jnanam.net")) :maintainer '("Benjamin Slade" . "slade@jnanam.net") :url "https://gitlab.com/emacsomancer/equake")

@@ -4,7 +4,7 @@
 (
  ("/home/" . "marcos/")
  ("/home/marcos/Documents/" . "EmacsBackup/")
- ("/home/marcos/" . "Documents/")
+ ("/home/marcos/" . ".emacs.d/")
  ("/sudo:arch:/etc/" . "pacman.d/")
  ("/sudo:arch:/" . "etc/")
 )
@@ -12,8 +12,8 @@
 ;; ----- ido-work-directory-list -----
 (
  "/home/marcos/.emacs.d/"
- "/home/marcos/Documents/"
  "/home/marcos/code/"
+ "/home/marcos/Documents/"
  "/home/marcos/Documents/EmacsBackup/"
  "/home/marcos/Documents/emacs/"
  "/home/marcos/Documents/emacs_backup/"
@@ -23,22 +23,30 @@
 ;; ----- ido-work-file-list -----
 (
  "init.el"
- "test.org"
- "tutorial2.go"
- "mirrorlist"
+ "arrays.go"
+ "switch_test.go"
+ "what.go"
+ "fuckerrighinthepussy.go"
+ "testy.go"
+ "another.go"
+ "recentf"
+ "shitter.go"
+ "fucker.go"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/marcos/.emacs.d/" (24400 30271 85606 163000) "auto-save-list/" "../" "session.107b1e8ba08f318db915990039494903400000079910071" "smex-items" "LICENSE" "recentf~" "tramp" "recentf" "elpa/" "init.el" ".git/" "./" "README.md" "init.el~" "ido.last")
+ ("/home/marcos/.emacs.d/" (24401 48221 980090 520000) "auto-save-list/" "../" "session.107b1e8ba08f318db915990039494903400000079910071" "smex-items" "LICENSE" "recentf~" "tramp" "recentf" "elpa/" "init.el" ".git/" "./" "README.md" "snippets/" "init.el~" "transient/" "ido.last")
 
- ("/home/marcos/" (24400 28651 445547 80000) ".zcompdump" ".zdirs" "../" "Downloads/" "emacs/" ".gnupg/" "Documents/" "Pictures/" ".gitconfig" "Desktop/" ".local/" ".zshrc" "Public/" "./" ".emacs.d/" ".zsh_history" ".config/" ".cache/" "Videos/" ".pki/" "Templates/" "Music/" "code/")
+ ("/home/marcos/" (24401 48221 830090 515000) ".zcompdump" ".zdirs" "../" "Downloads/" "emacs/" ".gnupg/" "Documents/" "Pictures/" ".gitconfig" "Desktop/" ".local/" ".zshrc" "Public/" "./" ".emacs.d/" ".zsh_history" ".config/" ".cache/" "Videos/" ".pki/" "Templates/" ".terminfo/" "Music/" "code/")
 
- ("/home/marcos/Documents/" (24400 13473 374993 576000) "../" "EmacsBackup/" "./" "test.org")
+ ("/home/marcos/Documents/" (24401 36055 865285 14000) "../" "EmacsBackup/" "./" "test.org" "backup.el/")
 
- ("/home/marcos/code/" (24400 24432 902059 602000) "../" "tutorial2.go" "tutorial.go" "./")
+ ("/home/marcos/code/" (24401 47182 876719 399000) "../" "switch_test.go" "test.go" "tutorial2.go" "arrays.go" "what.go" "tutorial.go" "./")
 
- ("/home/marcos/Documents/EmacsBackup/" (24399 9556 322092 773000) "auto-save-list/" "../" "session.107b1e8ba08f318db915990039494903400000079910071" "smex-items" "recentf~" "tramp" "recentf" "elpa/" "init.el" "./" "init.el~" "ido.last")
+ ("/home/marcos/.emacs.d/snippets/" (24400 63432 511669 182000) "../" "./")
+
+ ("/home/marcos/Documents/EmacsBackup/" (24399 46212 388394 397000) "auto-save-list/" "../" "session.107b1e8ba08f318db915990039494903400000079910071" "smex-items" "LICENSE" "recentf~" "tramp" "recentf" "elpa/" "init.el" ".git/" "./" "README.md" "init.el~" "ido.last")
 
  ("/home/marcos/Documents/emacs/" (24399 3643 475211 446000) "auto-save-list/" "../" "session.107b1e8ba08f318db915990039494903400000079910071" "smex-items" "recentf~" "tramp" "recentf" "elpa/" "init.el" "./" "init.el~" "ido.last")
 
