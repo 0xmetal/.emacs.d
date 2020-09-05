@@ -1,25 +1,25 @@
 
 ;; ----- smex-history -----
 (
- magit-push
- customize-themes
- doom-modeline-mode
+ package-list-packages
  package-install
  yas-describe-tables
- help-with-tutorial
- equake-mode
+ display-battery-mode
+ eval-buffer
+ display-time
+ ansi-term
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 12)
+ (eval-buffer . 13)
  (dashboard-return . 1)
  (customize-themes . 19)
  (rainbow-delimiters-mode . 2)
  (show-paren-mode . 2)
  (customize-group . 1)
  (customize . 3)
- (package-install . 14)
+ (package-install . 15)
  (nyan-mode . 6)
  (nyan-start-animation . 1)
  (nyan-toggle-wavy-trail . 1)
@@ -29,7 +29,7 @@
  (highlight-parentheses-mode . 1)
  (menu-set-font . 6)
  (yas-minor-mode-on . 1)
- (yas-describe-tables . 6)
+ (yas-describe-tables . 7)
  (yas-new-snippet . 2)
  (snippet-mode . 1)
  (yas-reload-all . 1)
@@ -40,4 +40,8 @@
  (equake-mode . 1)
  (help-with-tutorial . 1)
  (magit-push . 1)
+ (ansi-term . 2)
+ (display-time . 1)
+ (display-battery-mode . 3)
+ (package-list-packages . 1)
 )
