@@ -75,10 +75,10 @@
   (package-install 'go-mode))
 (unless (package-installed-p 'go)
   (package-refresh-contents)
-  (package-install 'go-mode))
+  (package-install 'go))
 (unless (package-installed-p 'go-snippets)
   (package-refresh-contents)
-  (package-install 'go-mode))
+  (package-install 'go-snippets))
 
 ;; beacon
 (unless (package-installed-p 'beacon)
