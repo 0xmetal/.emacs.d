@@ -1,47 +1,16 @@
 
 ;; ----- smex-history -----
 (
- package-list-packages
- package-install
- yas-describe-tables
- display-battery-mode
- eval-buffer
- display-time
- ansi-term
+ cd
+ 5x5
+ arp
+ dbx
+ dig
+ erc
+ ert
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 13)
- (dashboard-return . 1)
- (customize-themes . 19)
- (rainbow-delimiters-mode . 2)
- (show-paren-mode . 2)
- (customize-group . 1)
- (customize . 3)
- (package-install . 15)
- (nyan-mode . 6)
- (nyan-start-animation . 1)
- (nyan-toggle-wavy-trail . 1)
- (nyan-start-music . 3)
- (magit-status . 2)
- (highlight-lines-matching-regexp . 1)
- (highlight-parentheses-mode . 1)
- (menu-set-font . 6)
- (yas-minor-mode-on . 1)
- (yas-describe-tables . 7)
- (yas-new-snippet . 2)
- (snippet-mode . 1)
- (yas-reload-all . 1)
- (doom-modeline-mode . 14)
- (evil-avy-goto-char . 1)
- (evil-buffer . 6)
- (equake--launch-shell . 3)
- (equake-mode . 1)
- (help-with-tutorial . 1)
- (magit-push . 1)
- (ansi-term . 2)
- (display-time . 1)
- (display-battery-mode . 3)
- (package-list-packages . 1)
+ 
 )

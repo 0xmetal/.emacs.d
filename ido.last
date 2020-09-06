@@ -2,75 +2,28 @@
 
 ;; ----- ido-last-directory-list -----
 (
- ("/su:archbook:/usr/share/" . "xsessions/")
- ("/su:archbook:/usr/" . "share/")
- ("/su:archbook:/" . "usr/")
- ("/usr/share/" . "xsessions/")
- ("/usr/" . "share/")
- ("/" . "usr/")
- ("/home/" . "marcos/")
- ("/home/marcos/Documents/" . "EmacsBackup/")
- ("/home/marcos/" . ".emacs.d/")
- ("/sudo:arch:/etc/" . "pacman.d/")
- ("/sudo:arch:/" . "etc/")
+ ("/home/m/" . "Documents/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
- "/home/marcos/.emacs.d/"
- "/home/marcos/code/golang/"
- "/home/marcos/code/"
- "/su:archbook:/usr/share/xsessions/"
- "/usr/share/xsessions/"
- "/::"
- "/home/marcos/Documents/"
- "/home/marcos/Documents/EmacsBackup/"
- "/home/marcos/Documents/emacs/"
- "/home/marcos/Documents/emacs_backup/"
- "/sudo:arch:/etc/pacman.d/"
+ "/home/m/Documents/"
+ "/home/m/.emacs.d/"
 )
 
 ;; ----- ido-work-file-list -----
 (
+ "anothaone"
  "init.el"
- "apple.py"
- "EXWM.desktop"
- "su"
- "arrays.go"
- "switch_test.go"
- "what.go"
- "fuckerrighinthepussy.go"
- "testy.go"
- "another.go"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/marcos/" (24403 58437 958817 843000) "Videos/" ".zsh_history" ".pki/" ".local/" ".ICEauthority" ".config/" "Documents/" "code/" ".gnupg/" "../" "Downloads/" ".zshrc.local" ".zshrc" "Desktop/" "Pictures/" ".emacs.d/" "Public/" "Templates/" ".zdirs" "./" "Music/" ".cache/" ".zcompdump")
+ ("/home/m/Documents/" (24405 16156 302822 637000) "rebirth" "../" "anothaone" "rebirth~" "./")
 
- ("/home/marcos/code/" (24403 58461 108818 694000) "../" "golang/" "./")
+ ("/home/m/.emacs.d/" (24405 16665 472841 223000) "../" "snippets/" "init.el" "./" "recentf~" "smex-items" "auto-save-list/" "init.el~" "elpa/" "recentf")
 
- ("/home/marcos/code/golang/" (24403 58461 108818 694000) "../" "./")
-
- ("/usr/share/xsessions/" (24403 51154 418553 750000) "EXWM.desktop" "../" "gnome.desktop" "gnome-xorg.desktop" "./" "gnome-classic.desktop")
-
- ("/home/marcos/.emacs.d/" (24403 58241 328810 664000) "LICENSE" "init.el~" "ido.last" "elpa/" "recentf" "init.el" "auto-save-list/" ".git/" "../" "session.107b1e8ba08f318db915990039494903400000079910071" "snippets/" "smex-items" "README.md" "./" "recentf~" "transient/" "tramp")
-
- ("/usr/share/" (24403 47318 738834 803000) "gnome-color-manager/" "sushi/" "zoneinfo-posix/" "jack-audio-connection-kit/" "i18n/" "gst-plugins-base/" "pacman/" "automake-1.16/" "gcc-10.2.0/" "zoneinfo/" "awk/" "alsa/" "gitweb/" "qemu/" "colord/" "ghostscript/" "pkgconfig/" "zsh/" "snmp/" "guile/" "glvnd/" "pmix/" "polkit-1/" "mime/" "libgweather/" "devhelp/" "gnome-software/" "ibus/" "gnome-bluetooth/" "gnome-session/" "model/" "nvim/" "gnome-maps/" "ffmpeg/" "gnome-video-effects/" "git-gui/" "enchant/" "gnome-settings-daemon/" "gnome-documents/" "wayland/" "gtksourceview-4/" "emacs/" "color/" "gedit/" "desktop-directories/" "gnome-boxes/" "wayland-sessions/" "gegl-0.4/" "kbd/" "epiphany/" "factory/" "libvirt/" "grub/" "X11/" "bison/" "yelp-xsl/" "tuned/" "dbus-1/" "sane/" "slsh/" "libgnomekbd/" "augeas/" "ostree/" "wayland-protocols/" "eog/" "openmpi/" "gnome-logs/" "info/" "ca-certificates/" "telepathy/" "gjs-1.0/" "gettext-0.21/" "gnome-control-center/" "t1lib/" "tabset/" "hwloc/" "libtool/" "evince/" "ImageMagick-7/" "file/" "keyutils/" "p11-kit/" "git/" "flatpak/" "themes/" "djvu/" "gnome-system-monitor/" "libdrm/" "vala/" "groff/" "makepkg-template/" "glib-2.0/" "iana-etc/" "thumbnailers/" "gvfs/" "pulseaudio/" "sounds/" "../" "GConf/" "common-lisp/" "grilo-plugins/" "glade/" "backgrounds/" "iptables/" "vim/" "m17n/" "help/" "gstreamer-1.0/" "aclocal-1.16/" "speech-dispatcher/" "et/" "liblouis/" "ladspa/" "gnome-shell/" "brltty/" "misc/" "tc/" "xdg-desktop-portal/" "tracker-miners/" "libwacom/" "daxctl/" "org.gnome.Music/" "libgphoto2_port/" "hwdata/" "gdb/" "java/" "cmake/" "zenity/" "libgpg-error/" "metainfo/" "gitk/" "yelp/" "doc/" "tracker/" "gupnp-av/" "aclocal/" "org.gnome.Characters/" "gnome-user-share/" "xcb/" "lua/" "libquvi-scripts/" "osinfo/" "gir-1.0/" "pixmaps/" "shared-color-targets/" "gtk-doc/" "clutter-1.0/" "gnome/" "zoneinfo-leaps/" "file-roller/" "evolution-data-server/" "gettext/" "perf-core/" "vde2/" "libcaca/" "icons/" "totem/" "cracklib/" "locale/" "man/" "graphite2/" "orca/" "alsa-card-profile/" "terminfo/" "fish/" "ss/" "openal/" "gnome-background-properties/" "rygel/" "perl5/" "fonts/" "bash-completion/" "defaults/" "accountsservice/" "installed-tests/" "libalpm/" "xsessions/" "apr-1/" "licenses/" "applications/" "./" "libthai/" "httpd/" "readline/" "dconf/" "mobile-broadband-provider-info/" "git-core/" "dict/" "xml/" "cogl/" "gnome-tweaks/" "icu/" "drirc.d/" "xtables/" "lensfun/" "systemd/" "luajit-2.0.5/" "gupnp-dlna-2.0/" "gnome-books/" "imlib2/" "gdm/" "autoconf/" "makepkg/" "avahi/" "gnupg/" "app-info/" "iso-codes/" "mkinitcpio/" "libgphoto2/" "org.gnome.Weather/" "libinput/" "texinfo/" "gtk-3.0/")
-
- ("/usr/" (24403 49110 819124 768000) "bin/" "sbin/" "lib64/" "lib32/" "src/" "../" "include/" "./" "share/" "lib/" "local/")
-
- ("/home/" (24403 18571 98543 964000) "marcos/" "../" "./")
-
- ("/home/marcos/Documents/" (24403 49402 268610 23000) "../" "./")
-
- ("/home/marcos/.emacs.d/snippets/" (24400 63432 511669 182000) "../" "./")
-
- ("/home/marcos/Documents/EmacsBackup/" (24399 46212 388394 397000) "auto-save-list/" "../" "session.107b1e8ba08f318db915990039494903400000079910071" "smex-items" "LICENSE" "recentf~" "tramp" "recentf" "elpa/" "init.el" ".git/" "./" "README.md" "init.el~" "ido.last")
-
- ("/home/marcos/Documents/emacs/" (24399 3643 475211 446000) "auto-save-list/" "../" "session.107b1e8ba08f318db915990039494903400000079910071" "smex-items" "recentf~" "tramp" "recentf" "elpa/" "init.el" "./" "init.el~" "ido.last")
-
- ("/home/marcos/Documents/emacs_backup/" (24399 1156 661788 415000) "auto-save-list/" "../" "session.107b1e8ba08f318db915990039494903400000079910071" "recentf~" "recentf" "elpa/" "init.el" "./" ".emacs.d/" "init.el~")
+ ("/home/m/" (24405 13149 979379 698000) ".gnupg/" ".zsh_history" "../" "twt/" ".zcompdump" ".npm/" ".zshrc" "Music/" "fuckersup.el" ".zdirs" "Desktop/" ".vim/" "./" ".tmux.conf" ".config/" ".local/" "Templates/" ".pki/" "dots/" ".cache/" ".emacs.d/" "Pictures/" "Documents/" "Public/" "Downloads/" "Videos/" "go/")
 )
 
 ;; ----- ido-unc-hosts-cache -----
