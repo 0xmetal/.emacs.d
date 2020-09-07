@@ -1,3 +1,7 @@
+;; maxed
+(add-hook 'window-setup-hook 'toggle-frame-maximized t)
+
+
 ;; Optimizations
 ;; In noninteractive sessions, prioritize non-byte-compiled source files to
 ;; prevent the use of stale byte-code. Otherwise, it saves us a little IO time
