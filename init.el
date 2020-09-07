@@ -1,12 +1,29 @@
-;; A big contributor to startup times is garbage collection. We up the gc
-;; threshold to temporarily prevent it from running, then reset it later by
-;; enabling `gcmh-mode'. Not resetting it will cause stuttering/freezes.
-(setq gc-cons-threshold most-positive-fixnum)
+;;;;; Startup optimizations
 
-;; In noninteractive sessions, prioritize non-byte-compiled source files to
-;; prevent the use of stale byte-code. Otherwise, it saves us a little IO time
-;; to skip the mtime checks on every *.elc file.
-(setq load-prefer-newer noninteractive)
+;;;;;; Set garbage collection threshold
+
+;; From https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
+
+(setq gc-cons-threshold-original gc-cons-threshold)
+(setq gc-cons-threshold (* 1024 1024 100))
+
+;;;;;; Set file-name-handler-alist
+
+;; Also from https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
+
+(setq file-name-handler-alist-original file-name-handler-alist)
+(setq file-name-handler-alist nil)
+
+;;;;;; Set deferred timer to reset them
+
+(run-with-idle-timer
+ 5 nil
+ (lambda ()
+   (setq gc-cons-threshold gc-cons-threshold-original)
+   (setq file-name-handler-alist file-name-handler-alist-original)
+   (makunbound 'gc-cons-threshold-original)
+   (makunbound 'file-name-handler-alist-original)
+   (message "gc-cons-threshold and file-name-handler-alist restored")))
 
 ;; package
 (require 'package)
