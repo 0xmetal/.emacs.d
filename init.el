@@ -1,7 +1,3 @@
-;; maxed
-(add-hook 'window-setup-hook 'toggle-frame-maximized t)
-
-
 ;; Optimizations
 ;; In noninteractive sessions, prioritize non-byte-compiled source files to
 ;; prevent the use of stale byte-code. Otherwise, it saves us a little IO time
@@ -60,9 +56,6 @@
 (show-paren-mode 1)
 
 ;; dash 
-(unless (package-installed-p 'dashboard)
-  (package-refresh-contents)
-  (package-install 'dashboard))
 (use-package dashboard
   :ensure t
   :config
@@ -70,9 +63,6 @@
 (setq dashboard-startup-banner 'logo)
 
 ;; which-key
-(unless (package-installed-p 'which-key)
-  (package-refresh-contents)
-  (package-install 'which-key))
 (use-package which-key
   :ensure t
   :init
@@ -102,18 +92,12 @@
   (package-install 'go-snippets))
 
 ;; beacon
-(unless (package-installed-p 'beacon)
-  (package-refresh-contents)
-  (package-install 'beacon))
 (use-package beacon
   :ensure t
   :init
   (beacon-mode 1)) 
 
 ;; smex
-(unless (package-installed-p 'smex)
-  (package-refresh-contents)
-  (package-install 'smex))
 (use-package smex
   :ensure t
   :init (smex-initialize)
@@ -121,9 +105,6 @@
   ("M-x" . smex))
 
 ;; avy
-(unless (package-installed-p 'avy)
-  (package-refresh-contents)
-  (package-install 'avy))
 (use-package avy
   :ensure t
   :bind
@@ -138,6 +119,7 @@
   :init (ido-vertical-mode 1))
 (setq ido-vertical-define-keys
       'C-n-and-C-p-only) 
+
 ;; zsh config
 (defvar my-term-shell "/bin/zsh")  
   (defadvice ansi-term (before force-bash)
