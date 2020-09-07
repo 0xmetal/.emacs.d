@@ -41,19 +41,18 @@
   (package-install 'use-package))
 
 ;; evil
-(unless (package-installed-p 'evil)
-  (package-refresh-contents)
-  (package-install 'evil))
-(require 'evil)
-(evil-mode 1)
+(use-package evil
+  :ensure t
+  :init
+  (evil-mode 1))
 
 ;; smartparens
-(unless (package-installed-p 'smartparens)
-  (package-refresh-contents)
-  (package-install 'smartparens))
-(require 'smartparens-config)
-(add-hook 'prog-mode-hook #'smartparens-mode)
-(show-paren-mode 1)
+(use-package smartparens
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook #'smartparens-mode)
+  :init
+  (show-paren-mode 1))
 
 ;; dash 
 (use-package dashboard
@@ -69,27 +68,32 @@
   (which-key-mode))
 
 ;; snippets
-(unless (package-installed-p 'yasnippet)
-  (package-refresh-contents)
-  (package-install 'yasnippet))
-(unless (package-installed-p 'yasnippet-snippets)
-  (package-refresh-contents)
-  (package-install 'yasnippet-snippets))
-(add-to-list 'load-path
-              "~/.emacs.d/plugins/yasnippet")
-(require 'yasnippet)
-(yas-global-mode 1)
+(use-package yasnippet-snippets
+  :ensure t)
+(use-package yasnippet
+  :ensure t
+  :init
+  (add-to-list 'load-path
+	       "~/.emacs.d/plugins/yasnippet")
+  :config
+  (yas-global-mode))
 
 ;; golang
-(unless (package-installed-p 'go-mode)
-  (package-refresh-contents)
-  (package-install 'go-mode))
-(unless (package-installed-p 'go)
-  (package-refresh-contents)
-  (package-install 'go))
-(unless (package-installed-p 'go-snippets)
-  (package-refresh-contents)
-  (package-install 'go-snippets))
+(use-package go-mode
+  :ensure t)
+(use-package go
+  :ensure t)
+(use-package go-snippets
+  :ensure t)
+
+;; highlight-parentheses
+(use-package highlight-parentheses
+  :ensure t)
+(define-globalized-minor-mode global-highlight-parentheses-mode
+  highlight-parentheses-mode
+  (lambda ()
+    (highlight-parentheses-mode t)))
+(global-highlight-parentheses-mode t)
 
 ;; beacon
 (use-package beacon
@@ -107,8 +111,18 @@
 ;; avy
 (use-package avy
   :ensure t
-  :bind
-  ("M-s" . avy-goto-char))
+  :bind ("M-s" . 'avy-goto-char))
+
+;; color delimiters
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+
+(use-package color-identifiers-mode 
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'color-identifiers-mode))
 
 ;; ido
 (setq ido-enable-flex-matching nil)
@@ -122,9 +136,9 @@
 
 ;; zsh config
 (defvar my-term-shell "/bin/zsh")  
-  (defadvice ansi-term (before force-bash)
+  (defadvice eshell (before force-bash)
     (interactive (list my-term-shell)))
-(ad-activate 'ansi-term)
+(ad-activate 'eshell)
 
 ;; quick
 (defalias 'yes-or-no-p
@@ -132,7 +146,7 @@
 
 ;; quick term
 (global-set-key (kbd "<s-return>")
-		'ansi-term) 
+		'eshell) 
 ;; fast buf
 (global-set-key (kbd "C-x C-p") 'previous-buffer) 
 (global-set-key (kbd "C-x C-n") 'next-buffer) 
@@ -154,3 +168,22 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(custom-enabled-themes nil)
+ '(package-selected-packages
+   '(rainbow-delimiters-mode color-delimiters-mode global-color-identifiers-mode highlight-parentheses color-identifiers-mode ido-vertical-mode avy smex beacon go-snippets go go-mode yasnippet-snippets yasnippet which-key dashboard smartparens evil use-package)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
