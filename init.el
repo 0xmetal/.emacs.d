@@ -86,6 +86,13 @@
 (use-package go-snippets
   :ensure t)
 
+;; hl-line
+(use-package hl-line
+  :config (add-hook 'term-mode-hook (lambda ()
+                                    (setq-local global-hl-line-mode
+                                                nil)))
+  :init (global-hl-line-mode 1))
+
 ;; highlight-parentheses
 (use-package highlight-parentheses
   :ensure t)
@@ -136,9 +143,9 @@
 
 ;; zsh config
 (defvar my-term-shell "/bin/zsh")  
-  (defadvice eshell (before force-bash)
+  (defadvice ansi-term (before force-bash)
     (interactive (list my-term-shell)))
-(ad-activate 'eshell)
+(ad-activate 'ansi-term)
 
 ;; quick
 (defalias 'yes-or-no-p
@@ -146,7 +153,7 @@
 
 ;; quick term
 (global-set-key (kbd "<s-return>")
-		'eshell) 
+		'ansi-term) 
 ;; fast buf
 (global-set-key (kbd "C-x C-p") 'previous-buffer) 
 (global-set-key (kbd "C-x C-n") 'next-buffer) 
@@ -168,3 +175,16 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(ido-vertical-mode color-identifiers-mode rainbow-delimiters avy smex beacon highlight-parentheses go-snippets go go-mode yasnippet-snippets which-key dashboard smartparens evil use-package)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
