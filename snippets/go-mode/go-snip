@@ -5,7 +5,7 @@
 
 /*
  * author: metlx
- * date: `(format-time-string "%Y-%m-%d")`
+ * date: `(current-time-string)`
 */
 
 package 
