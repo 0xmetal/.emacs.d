@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: custom go-snippet
+# key: gonew
+# --
+
+/*
+ * author: metlx
+ * date: `(format-time-string "%Y-%m-%d")`
+*/
+
+package 
+
+import (
+	""
+)
+
+func main() {
+	
+}
