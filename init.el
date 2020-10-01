@@ -54,6 +54,12 @@
   :init
   (show-paren-mode 1))
 
+;; treemacs
+(use-package treemacs
+  :ensure t)
+(global-set-key (kbd "<s-backspace>")
+		'treemacs)
+
 ;; indent guides
 (use-package highlight-indent-guides
   :ensure t
