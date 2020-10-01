@@ -126,20 +126,31 @@
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
+;; mor colorz
 (use-package color-identifiers-mode 
   :ensure t
   :config
   (add-hook 'prog-mode-hook 'color-identifiers-mode))
 
+;; symbols
+(add-hook 'prog-mode-hook 'global-prettify-symbols-mode t)
+
+;; hl-line
+(use-package hl-line
+  :config (add-hook 'term-mode-hook (lambda ()
+                                    (setq-local global-hl-line-mode
+                                                nil)))
+  :init (global-hl-line-mode 1))
+
 ;; ido
-(setq ido-enable-flex-matching nil)
-(setq ido-create-new-buffer 'always)
-(setq ido-everywhere t) (ido-mode 1) 
 (use-package ido-vertical-mode
   :ensure t
   :init (ido-vertical-mode 1))
 (setq ido-vertical-define-keys
       'C-n-and-C-p-only) 
+(setq ido-enable-flex-matching nil)
+(setq ido-create-new-buffer 'always)
+(setq ido-everywhere t) (ido-mode 1) 
 
 ;; zsh config
 (defvar my-term-shell "/bin/zsh")  
@@ -154,6 +165,9 @@
 ;; quick term
 (global-set-key (kbd "<s-return>")
 		'ansi-term) 
+;; treemacs
+(global-set-key (kbd "<s-backspace>")
+		'treemacs)
 ;; fast buf
 (global-set-key (kbd "C-x C-p") 'previous-buffer) 
 (global-set-key (kbd "C-x C-n") 'next-buffer) 
