@@ -54,6 +54,13 @@
   :init
   (show-paren-mode 1))
 
+;; indent guides
+(use-package highlight-indent-guides
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
+(setq highlight-indent-guides-method 'character) 
+
 ;; dash 
 (use-package dashboard
   :ensure t
@@ -85,13 +92,6 @@
   :ensure t)
 (use-package go-snippets
   :ensure t)
-
-;; hl-line
-(use-package hl-line
-  :config (add-hook 'term-mode-hook (lambda ()
-                                    (setq-local global-hl-line-mode
-                                                nil)))
-  :init (global-hl-line-mode 1))
 
 ;; highlight-parentheses
 (use-package highlight-parentheses
@@ -170,8 +170,3 @@
 
 ;; modeline colum numbers
 (column-number-mode 1) 
-
-;; clean up
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
