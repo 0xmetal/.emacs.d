@@ -184,6 +184,7 @@
 ;; relac
 (setq make-backup-files nil)
 (setq auto-save-default nil)
+(electric-pair-mode 1)
 
 ;; scrolling
 (setq scroll-conservatively 10000)
