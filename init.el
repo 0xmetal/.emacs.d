@@ -48,3 +48,4 @@
         '(
           (newline-mark 10 [8629 10]))))
 (add-hook 'prog-mode-hook 'whitespace-newline-mode)
+
