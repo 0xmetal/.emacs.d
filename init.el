@@ -111,20 +111,7 @@
 ;; beacon
 (use-package beacon
   :ensure t
-  :init
-  (beacon-mode 1)) 
-
-;; smex
-(use-package smex
-  :ensure t
-  :init (smex-initialize)
-  :bind
-  ("M-x" . smex))
-
-;; avy
-(use-package avy
-  :ensure t
-  :bind ("M-s" . 'avy-goto-char))
+  :init (beacon-mode 1)) 
 
 ;; color delimiters
 (use-package rainbow-delimiters
@@ -144,8 +131,8 @@
 ;; hl-line
 (use-package hl-line
   :config (add-hook 'term-mode-hook (lambda ()
-                                    (setq-local global-hl-line-mode
-                                                nil)))
+                                      (setq-local global-hl-line-mode
+                                                  nil)))
   :init (global-hl-line-mode 1))
 
 ;; ido
@@ -160,8 +147,8 @@
 
 ;; zsh config
 (defvar my-term-shell "/bin/zsh")  
-  (defadvice ansi-term (before force-bash)
-    (interactive (list my-term-shell)))
+(defadvice ansi-term (before force-bash)
+  (interactive (list my-term-shell)))
 (ad-activate 'ansi-term)
 
 ;; quick
@@ -191,3 +178,10 @@
 
 ;; modeline colum numbers
 (column-number-mode 1) 
+
+(progn
+  (setq whitespace-style (quote (face spaces tabs newline space-mark tab-mark newline-mark )))
+  (setq whitespace-display-mappings
+        '(
+          (newline-mark 10 [8629 10]))))
+(add-hook 'prog-mode-hook 'whitespace-newline-mode)
