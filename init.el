@@ -49,3 +49,11 @@
           (newline-mark 10 [8629 10]))))
 (add-hook 'prog-mode-hook 'whitespace-newline-mode)
 
+
+(use-package rainbow-identifiers :ensure t
+  :config
+  (defun rainbow-identifiers--bolden-faces ()
+    (dotimes (i 15) ;; TODO: use number of faces as customized
+      (face-remap-add-relative (intern (format "rainbow-identifiers-identifier-%d" (1+ i))) :weight 'bold)))
+  (add-hook 'rainbow-identifiers-mode-hook 'rainbow-identifiers--bolden-faces)
+  (rainbow-identifiers--bolden-faces))
