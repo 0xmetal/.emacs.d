@@ -14,7 +14,19 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-;; theme
+;; nice 
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+
+;; highlight numbers man
+(use-package highlight-numbers
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'highlight-numbers-mode))
+
+;; theme = nice
 (use-package doom-themes
   :ensure t
   :config
