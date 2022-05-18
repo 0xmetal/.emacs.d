@@ -1,5 +1,6 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;          metlx's emacs configuration        ;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 0xmetal's emacs config ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; load path
 (push (expand-file-name "site-lisp" user-emacs-directory) load-path)
@@ -13,6 +14,12 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+
+;; this is pog
+(use-package golden-ratio
+  :ensure t
+  :config
+  (golden-ratio-mode 1))
 
 ;; nice 
 (use-package rainbow-delimiters
@@ -49,8 +56,8 @@
   :config
   (setq js-indent-level 2)
   (advice-add #'js2-identifier-start-p
-            :after-until
-            (lambda (c) (eq c ?#))))
+              :after-until
+              (lambda (c) (eq c ?#))))
 
 ;; git support
 (use-package magit
