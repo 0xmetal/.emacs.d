@@ -84,6 +84,7 @@
   (horizontal-scroll-bar-mode -1))
 
 ;; basic modes
+(setq auto-save-default nil)
 (recentf-mode 1)
 (save-place-mode 1)
 (show-paren-mode 1)
