@@ -15,6 +15,12 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+;; i shall always see the way
+(use-package beacon
+  :ensure t
+  :config
+  (beacon-mode 1))
+
 ;; need this
 (use-package undo-fu
   :ensure t
