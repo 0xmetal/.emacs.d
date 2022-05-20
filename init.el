@@ -2,10 +2,6 @@
 ;; 0xmetal's emacs config ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; load path
-(push (expand-file-name "site-lisp" user-emacs-directory) load-path)
-(push (expand-file-name "lisp" user-emacs-directory) load-path)
-
 ;; melpa
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
@@ -15,13 +11,13 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-;; i shall always see the way
+;; xray vision
 (use-package beacon
   :ensure t
   :config
   (beacon-mode 1))
 
-;; need this
+;; need
 (use-package undo-fu
   :ensure t
   :config
@@ -29,7 +25,7 @@
   (global-set-key (kbd "C-z")   'undo-fu-only-undo)
   (global-set-key (kbd "C-S-z") 'undo-fu-only-redo))
 
-;; this is pog
+;; davinci
 (use-package golden-ratio
   :ensure t
   :config
@@ -41,13 +37,13 @@
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
-;; highlight numbers man
+;; highlight numbers support
 (use-package highlight-numbers
   :ensure t
   :config
   (add-hook 'prog-mode-hook 'highlight-numbers-mode))
 
-;; theme = nice
+;; sexy theme
 (use-package doom-themes
   :ensure t
   :config
@@ -55,7 +51,7 @@
         doom-themes-enable-italic t)
   (load-theme 'doom-tomorrow-night t))
 
-;; javascript support
+;; javascript mode
 (use-package js2-mode
   :ensure t
   :mode
@@ -72,21 +68,10 @@
 (prefer-coding-system 'utf-8)
 (setq initial-scratch-message nil)
 (setq inhibit-splash-screen t)
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
-(setq adaptive-fill-regexp "[ t]+|[ t]*([0-9]+.|*+)[ t]*")
-(setq adaptive-fill-first-line-regexp "^* *$")
-(setq delete-by-moving-to-trash t)
 (setq make-backup-files nil)
-(setq auto-save-default nil)
-(setq set-mark-command-repeat-pop t)
-(setq-default major-mode 'text-mode)
-(setq sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
-(setq sentence-end-double-space nil)
-(setq-default c-basic-offset   2
-              tab-width        2
-              indent-tabs-mode nil)
 
 ;; ui
+(setq ring-bell-function 'ignore)
 (global-hl-line-mode 1)
 (add-hook 'prog-mode-hook 'global-prettify-symbols-mode t)
 (unless (eq window-system 'ns)
@@ -100,17 +85,12 @@
 
 ;; basic modes
 (recentf-mode 1)
-(ignore-errors (savehist-mode 1))
 (save-place-mode 1)
 (show-paren-mode 1)
-(delete-selection-mode 1)
-(global-auto-revert-mode 1)
 (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
 (electric-pair-mode 1)
-(add-hook 'prog-mode-hook #'subword-mode)
-(add-hook 'minibuffer-setup-hook #'subword-mode)
 
-;; completion
+;; recentf
 (if (fboundp 'fido-mode)
     (progn
       (fido-mode 1)
@@ -133,6 +113,7 @@
           ido-create-new-buffer 'always
           ido-enable-flex-matching t)))
 
+;; bindings for elisp
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (local-set-key (kbd "C-c C-x") #'ielm)
@@ -140,16 +121,3 @@
             (local-set-key (kbd "C-c C-b") #'eval-buffer)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(undo-fu magit js2-mode doom-themes highlight-numbers rainbow-delimiters golden-ratio use-package)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
