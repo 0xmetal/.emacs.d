@@ -66,8 +66,7 @@
 
 ;; git support
 (use-package magit
-  :ensure t
-  :pin melpa-stable)
+  :ensure t)
 
 ;; better defaults
 (prefer-coding-system 'utf-8)
