@@ -15,7 +15,7 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-;; need this
+;; need
 (use-package undo-fu
   :ensure t
   :config
