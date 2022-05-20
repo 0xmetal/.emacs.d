@@ -56,22 +56,13 @@
   (load-theme 'doom-tomorrow-night t))
 
 ;; javascript support
-(use-package js2-mode :ensure t :defer 20
+(use-package js2-mode
+  :ensure t
   :mode
-  (("\\.js\\'" . js2-mode))
-  :custom
-  (js2-include-node-externs t)
-  (js2-global-externs '("customElements"))
-  (js2-highlight-level 3)
-  (js2r-prefer-let-over-var t)
-  (js2r-prefered-quote-type 2)
-  (js-indent-align-list-continuation t)
-  (global-auto-highlight-symbol-mode t)
+  ("\\.js\\'" . js2-mode)
   :config
-  (setq js-indent-level 2)
-  (advice-add #'js2-identifier-start-p
-              :after-until
-              (lambda (c) (eq c ?#))))
+  (setq js2-basic-offset 2)
+  (setq js2-mode-show-strict-warnings nil))
 
 ;; git support
 (use-package magit
