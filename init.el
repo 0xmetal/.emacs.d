@@ -67,13 +67,11 @@
 (use-package magit
   :ensure t)
 
-;; better defaults
+;; basic
 (prefer-coding-system 'utf-8)
 (setq initial-scratch-message nil)
 (setq inhibit-splash-screen t)
 (setq make-backup-files nil)
-
-;; ui
 (setq ring-bell-function 'ignore)
 (global-hl-line-mode 1)
 (add-hook 'prog-mode-hook 'global-prettify-symbols-mode t)
@@ -85,8 +83,6 @@
   (scroll-bar-mode -1))
 (when (fboundp 'horizontal-scroll-bar-mode)
   (horizontal-scroll-bar-mode -1))
-
-;; basic modes
 (setq auto-save-default nil)
 (recentf-mode 1)
 (save-place-mode 1)
