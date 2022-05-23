@@ -24,6 +24,11 @@
 ;; larger than the system default.
 (setq frame-inhibit-implied-resize t)
 
+;; Prevent unwanted runtime builds in gccemacs (native-comp); packages are
+;; compiled ahead-of-time when they are installed and site files are compiled
+;; when gccemacs is installed.
+(setq comp-deferred-compilation nil)
+
 ;; basic
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -42,11 +47,6 @@
 (show-paren-mode 1)
 (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
 (electric-pair-mode 1)
-
-;; Prevent unwanted runtime builds in gccemacs (native-comp); packages are
-;; compiled ahead-of-time when they are installed and site files are compiled
-;; when gccemacs is installed.
-(setq comp-deferred-compilation nil)
 
 ;; melpa
 (require 'package)
