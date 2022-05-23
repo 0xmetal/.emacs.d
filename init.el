@@ -57,6 +57,7 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+;; magic hack
 (use-package gcmh
   :ensure t
   :demand
