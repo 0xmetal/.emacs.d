@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 0xmetal's emacs config ;;
+;; metlx's emacs config ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Defer garbage collection further back in the startup process
