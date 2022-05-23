@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 0xmetal's emacs config ;;
+;; metlx's emacs config ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; more faster
