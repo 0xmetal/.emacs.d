@@ -57,6 +57,12 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(use-package gcmh
+  :ensure t
+  :demand
+  :config
+  (gcmh-mode 1))
+
 ;; xray vision
 (use-package beacon
   :ensure t
