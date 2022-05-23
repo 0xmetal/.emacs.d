@@ -1,9 +1,52 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; metlx's emacs config ;;
+;; 0xmetal's emacs config ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; more faster
-(setq gc-cons-threshold 402653184 gc-cons-percentage 0.6)
+;; Defer garbage collection further back in the startup process
+(setq gc-cons-threshold most-positive-fixnum
+      gc-cons-percentage 0.6)
+
+;; In Emacs 27+, package initialization occurs before `user-init-file' is
+;; loaded, but after `early-init-file'. Doom handles package initialization, so
+;; we must prevent Emacs from doing it early!
+(setq package-enable-at-startup nil)
+
+;; Do not allow loading from the package cache (same reason).
+(setq package-quickstart nil)
+
+;; Prevent the glimpse of un-styled Emacs by disabling these UI elements early.
+(push '(menu-bar-lines . 0) default-frame-alist)
+(push '(tool-bar-lines . 0) default-frame-alist)
+(push '(vertical-scroll-bars) default-frame-alist)
+
+;; Resizing the Emacs frame can be a terribly expensive part of changing the
+;; font. By inhibiting this, we easily halve startup times with fonts that are
+;; larger than the system default.
+(setq frame-inhibit-implied-resize t)
+
+;; basic
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(setq inhibit-splash-screen t)
+(setq use-file-dialog nil)
+(prefer-coding-system 'utf-8)
+(setq initial-scratch-message nil)
+(setq make-backup-files nil)
+(setq ring-bell-function 'ignore)
+(global-hl-line-mode 1)
+(add-hook 'prog-mode-hook 'global-prettify-symbols-mode t)
+(setq auto-save-default nil)
+(recentf-mode 1)
+(save-place-mode 1)
+(show-paren-mode 1)
+(setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
+(electric-pair-mode 1)
+
+;; Prevent unwanted runtime builds in gccemacs (native-comp); packages are
+;; compiled ahead-of-time when they are installed and site files are compiled
+;; when gccemacs is installed.
+(setq comp-deferred-compilation nil)
 
 ;; melpa
 (require 'package)
@@ -66,29 +109,6 @@
 ;; git support
 (use-package magit
   :ensure t)
-
-;; basic
-(prefer-coding-system 'utf-8)
-(setq initial-scratch-message nil)
-(setq inhibit-splash-screen t)
-(setq make-backup-files nil)
-(setq ring-bell-function 'ignore)
-(global-hl-line-mode 1)
-(add-hook 'prog-mode-hook 'global-prettify-symbols-mode t)
-(unless (eq window-system 'ns)
-  (menu-bar-mode -1))
-(when (fboundp 'tool-bar-mode)
-  (tool-bar-mode -1))
-(when (fboundp 'scroll-bar-mode)
-  (scroll-bar-mode -1))
-(when (fboundp 'horizontal-scroll-bar-mode)
-  (horizontal-scroll-bar-mode -1))
-(setq auto-save-default nil)
-(recentf-mode 1)
-(save-place-mode 1)
-(show-paren-mode 1)
-(setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
-(electric-pair-mode 1)
 
 ;; recentf
 (if (fboundp 'fido-mode)
