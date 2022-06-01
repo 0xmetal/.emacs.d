@@ -57,6 +57,11 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(use-package nyan-mode
+  :config
+  (setq nyan-animate-nyancat t)
+  (setq nyan-wavy-trail t))
+
 ;; magic hack
 (use-package gcmh
   :ensure t
