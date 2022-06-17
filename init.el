@@ -33,20 +33,15 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(setq inhibit-splash-screen t)
 (setq use-file-dialog nil)
 (prefer-coding-system 'utf-8)
-(setq initial-scratch-message nil)
 (setq make-backup-files nil)
 (setq ring-bell-function 'ignore)
-(global-hl-line-mode 1)
 (add-hook 'prog-mode-hook 'global-prettify-symbols-mode t)
 (setq auto-save-default nil)
 (recentf-mode 1)
 (save-place-mode 1)
 (show-paren-mode 1)
-(setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
-(electric-pair-mode 1)
 
 ;; melpa
 (require 'package)
@@ -57,23 +52,12 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(use-package nyan-mode
-  :config
-  (setq nyan-animate-nyancat t)
-  (setq nyan-wavy-trail t))
-
 ;; magic hack
 (use-package gcmh
   :ensure t
   :demand
   :config
   (gcmh-mode 1))
-
-;; xray vision
-(use-package beacon
-  :ensure t
-  :config
-  (beacon-mode 1))
 
 ;; need
 (use-package undo-fu
@@ -82,12 +66,6 @@
   (global-unset-key (kbd "C-z"))
   (global-set-key (kbd "C-z")   'undo-fu-only-undo)
   (global-set-key (kbd "C-S-z") 'undo-fu-only-redo))
-
-;; davinci
-(use-package golden-ratio
-  :ensure t
-  :config
-  (golden-ratio-mode 1))
 
 ;; nice 
 (use-package rainbow-delimiters
