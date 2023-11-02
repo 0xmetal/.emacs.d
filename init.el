@@ -117,6 +117,11 @@
   (add-to-list 'company-backends 'company-anaconda)
   )
 
+;; theme
+(use-package gruber-darker-theme
+  :ensure t
+  :config (load-theme 'gruber-darker t))
+
 ;; recentf but for directories
 (if (fboundp 'fido-mode)
     (progn
