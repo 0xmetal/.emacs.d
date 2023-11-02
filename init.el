@@ -40,8 +40,11 @@
 (add-hook 'prog-mode-hook 'global-prettify-symbols-mode t)
 (setq auto-save-default nil)
 (recentf-mode 1)
+(setq recentf-max-saved-items 500)
 (save-place-mode 1)
 (show-paren-mode 1)
+(setq scroll-step            1
+      scroll-conservatively  10000)
 
 ;; melpa
 (require 'package)
@@ -79,26 +82,67 @@
   :config
   (add-hook 'prog-mode-hook 'highlight-numbers-mode))
 
-;; sexy theme
-(use-package doom-themes
+;; is nice
+(use-package which-key
   :ensure t
   :config
-  (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t)
-  (load-theme 'doom-tomorrow-night t))
+  (which-key-mode))
 
-;; javascript mode
-(use-package js2-mode
+;; auto completez
+(use-package company
+ :ensure t
+ :config
+ (setq company-idle-delay 0
+       company-minimum-prefix-length 3
+       company-tooltip-limit nil
+       company-tooltip-align-annotations nil
+       company-tooltip-flip-when-above nil
+       )
+ (global-company-mode t)
+ )
+
+;; python bro
+(use-package anaconda-mode
   :ensure t
-  :mode
-  ("\\.js\\'" . js2-mode)
   :config
-  (setq js2-basic-offset 2)
-  (setq js2-mode-show-strict-warnings nil))
+  (add-hook 'python-mode-hook 'anaconda-mode)
+  )
 
-;; git support
-(use-package magit
-  :ensure t)
+;; python bro
+(use-package company-anaconda
+  :ensure t
+  :init (require 'rx)
+  :after (company)
+  :config
+  (add-to-list 'company-backends 'company-anaconda)
+  )
+
+;; recentf but for directories
+(if (fboundp 'fido-mode)
+    (progn
+      (fido-mode 1)
+      (when (fboundp 'fido-vertical-mode)
+        (fido-vertical-mode 1))
+
+      (defun fido-recentf-open-directory ()
+        "Use `completing-read' to find a recent directory."
+        (interactive)
+        (let* ((recent-dirs (delete-dups (mapcar 'file-name-directory recentf-list)))
+               (chosen-dir (completing-read "Find recent directory: " recent-dirs)))
+          (when (file-directory-p chosen-dir)
+            (dired chosen-dir)
+            (message "Opening directory...")
+            (revert-buffer)))
+        (message "Aborting"))
+      (global-set-key (kbd "C-x C-d") 'fido-recentf-open-directory))
+  (progn
+    (ido-mode 1)
+    (ido-everywhere 1)
+
+    (setq ido-use-virtual-buffers t
+          ido-use-filename-at-point 'guess
+          ido-create-new-buffer 'always
+          ido-enable-flex-matching t)))
 
 ;; recentf
 (if (fboundp 'fido-mode)
