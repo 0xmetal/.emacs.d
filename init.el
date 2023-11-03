@@ -29,15 +29,19 @@
 ;; when gccemacs is installed.
 (setq comp-deferred-compilation nil)
 
-;; basic
+;; manually load theme
+;; (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"))
+;; (load-theme 'blue-sea t)
+
+;; config
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(add-hook 'prog-mode-hook 'whitespace-mode t) ;; tsoding
 (setq use-file-dialog nil)
 (prefer-coding-system 'utf-8)
 (setq make-backup-files nil)
 (setq ring-bell-function 'ignore)
-(add-hook 'prog-mode-hook 'global-prettify-symbols-mode t)
 (setq auto-save-default nil)
 (recentf-mode 1)
 (setq recentf-max-saved-items 500)
@@ -61,6 +65,16 @@
   :demand
   :config
   (gcmh-mode 1))
+
+;; dashboard
+(use-package dashboard
+  :ensure t
+  :config
+  (setq dashboard-startup-banner 'official)
+  (setq dashboard-center-content t)
+  (setq dashboard-items nil)
+  (dashboard-setup-startup-hook)
+  )
 
 ;; need
 (use-package undo-fu
@@ -90,16 +104,14 @@
 
 ;; auto completez
 (use-package company
- :ensure t
- :config
- (setq company-idle-delay 0
-       company-minimum-prefix-length 3
-       company-tooltip-limit nil
-       company-tooltip-align-annotations nil
-       company-tooltip-flip-when-above nil
-       )
- (global-company-mode t)
- )
+  :ensure t
+  :config
+  (setq company-idle-delay 0
+	company-minimum-prefix-length 3
+	company-tooltip-limit nil
+	company-tooltip-align-annotations nil
+	company-tooltip-flip-when-above nil)
+  (global-company-mode t))
 
 ;; python bro
 (use-package anaconda-mode
@@ -117,12 +129,7 @@
   (add-to-list 'company-backends 'company-anaconda)
   )
 
-;; theme
-(use-package gruber-darker-theme
-  :ensure t
-  :config (load-theme 'gruber-darker t))
-
-;; recentf but for directories
+;; recentd
 (if (fboundp 'fido-mode)
     (progn
       (fido-mode 1)
