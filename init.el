@@ -31,7 +31,7 @@
 
 ;; manually load theme
 ;; (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"))
-;; (load-theme 'blue-sea t)
+(load-theme 'wheatgrass t)
 
 ;; config
 (menu-bar-mode -1)
