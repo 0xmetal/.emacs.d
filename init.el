@@ -31,30 +31,30 @@
 
 ;;; config
 (setq use-file-dialog nil)
-(setq make-backup-files nil)
-(setq ring-bell-function 'ignore)
-(setq auto-save-default nil)
-(setq recentf-max-saved-items 50)
+(setq make-backup-files nil)                         ;; relax
+(setq ring-bell-function 'ignore)                    ;; relax
+(setq auto-save-default nil)                         ;; no auto save
+(setq recentf-max-saved-items 50)                    ;; increase recentf files
 (setq scroll-step            1
-      scroll-conservatively  10000)
+      scroll-conservatively  10000)                  ;; smooth scrollin
 (add-to-list 'display-buffer-alist
              '("\\*compilation\\*"
                (display-buffer-reuse-window display-buffer-at-bottom)
-               (window-height . 15)))
-(load-theme 'wheatgrass t)
-(recentf-mode 1)
+               (window-height . 15)))                ;; compilation buffer at the bottom w/ adjustable height
+(load-theme 'wheatgrass t)                           ;; set theme
+(recentf-mode 1)                                     ;; lets you C-x C-r for recent files
 (save-place-mode 1)
 (show-paren-mode 1)
 (prefer-coding-system 'utf-8)
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(electric-pair-mode 1)
-(ido-mode 1)
+(menu-bar-mode -1)                                   ;; swag
+(tool-bar-mode -1)                                   ;; swag
+(scroll-bar-mode -1)                                 ;; swag
+(electric-pair-mode 1)                               ;; auto-closes parens ext...
+(ido-mode 1)                                         ;; populates buffers w/ options
 (set-face-attribute 'default nil :font "UbuntuMono Nerd Font" :height 160)
 
 
-;; gnu & elpa repos
+;; repos & use-package
 (require 'package)
 (add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
@@ -66,25 +66,25 @@
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
 
-;; swag
+;; colors
 (use-package rainbow-delimiters
   :ensure t
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
-;; highlight numbers support
+;; cool highlighting
 (use-package highlight-numbers
   :ensure t
   :config
   (add-hook 'prog-mode-hook 'highlight-numbers-mode))
 
-;; is nice
+;; 👁️
 (use-package which-key
   :ensure t
   :config
   (which-key-mode))
 
-;; auto completez
+;; auto-completion
 (use-package company
   :ensure t
   :config
@@ -92,13 +92,13 @@
   (global-company-mode t)
   (global-set-key (kbd "C-c C-y") 'company-complete))
 
-;; python bro
+;; python support
 (use-package anaconda-mode
   :ensure t
   :config
   (add-hook 'python-mode-hook 'anaconda-mode))
 
-;; python bro
+;; python support
 (use-package company-anaconda
   :ensure t
   :init (require 'rx)
@@ -156,6 +156,7 @@
           ido-create-new-buffer 'always
           ido-enable-flex-matching t)))
 
+;; kll comp buffer while retainin C-g functionallity
 (defun my/kill-compilation-buffer-and-window ()
   "Kill the compilation buffer and its window."
   (interactive)
