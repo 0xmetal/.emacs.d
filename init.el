@@ -179,11 +179,14 @@
           ido-create-new-buffer 'always
           ido-enable-flex-matching t)))
 
-;; bindings for elisp
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-c C-x") #'ielm)
-            (local-set-key (kbd "C-c C-c") #'eval-defun)
-            (local-set-key (kbd "C-c C-b") #'eval-buffer)))
+;; kill comp buffer with C-g
+(defun my/kill-buffer-and-window ()
+  "Kill the current buffer and its window."
+  (interactive)
+  (let ((compilation-buffer (get-buffer "*compilation*")))
+    (when compilation-buffer
+      (kill-buffer compilation-buffer)))
+  (delete-window))
+(global-set-key (kbd "C-g") 'my/kill-buffer-and-window)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
