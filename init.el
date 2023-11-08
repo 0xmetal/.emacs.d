@@ -106,11 +106,7 @@
 (use-package company
   :ensure t
   :config
-  (setq company-idle-delay 0
-	company-minimum-prefix-length 3
-	company-tooltip-limit nil
-	company-tooltip-align-annotations nil
-	company-tooltip-flip-when-above nil)
+  (setq company-idle-delay 99)
   (global-company-mode t))
 
 ;; python bro
@@ -179,14 +175,16 @@
           ido-create-new-buffer 'always
           ido-enable-flex-matching t)))
 
-;; kill comp buffer with C-g
-(defun my/kill-buffer-and-window ()
-  "Kill the current buffer and its window."
+;; hack gpt lol
+(defun my/kill-compilation-buffer-and-window ()
+  "Kill the compilation buffer and its window."
   (interactive)
   (let ((compilation-buffer (get-buffer "*compilation*")))
     (when compilation-buffer
-      (kill-buffer compilation-buffer)))
-  (delete-window))
-(global-set-key (kbd "C-g") 'my/kill-buffer-and-window)
+      (kill-buffer compilation-buffer)
+      (delete-window)))
+  (keyboard-quit))
+
+(global-set-key (kbd "C-g") 'my/kill-compilation-buffer-and-window)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
