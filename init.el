@@ -29,62 +29,44 @@
 ;; when gccemacs is installed.
 (setq comp-deferred-compilation nil)
 
-;; manually load theme
-;; (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"))
-(load-theme 'wheatgrass t)
-
-;; config
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(add-hook 'prog-mode-hook 'whitespace-mode t) ;; tsoding
+;;; config
 (setq use-file-dialog nil)
-(prefer-coding-system 'utf-8)
 (setq make-backup-files nil)
 (setq ring-bell-function 'ignore)
 (setq auto-save-default nil)
-(recentf-mode 1)
-(setq recentf-max-saved-items 500)
-(save-place-mode 1)
-(show-paren-mode 1)
+(setq recentf-max-saved-items 50)
 (setq scroll-step            1
       scroll-conservatively  10000)
+(add-to-list 'display-buffer-alist
+             '("\\*compilation\\*"
+               (display-buffer-reuse-window display-buffer-at-bottom)
+               (window-height . 15)))
+(load-theme 'wheatgrass t)
+(recentf-mode 1)
+(save-place-mode 1)
+(show-paren-mode 1)
+(prefer-coding-system 'utf-8)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(electric-pair-mode 1)
+(ido-mode 1)
+(set-face-attribute 'default nil :font "UbuntuMono Nerd Font" :height 160)
 
-;; melpa
+
+;; gnu & elpa repos
 (require 'package)
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+(eval-and-compile
+  (setq use-package-always-ensure t
+        use-package-expand-minimally t))
 
-;; magic hack
-(use-package gcmh
-  :ensure t
-  :demand
-  :config
-  (gcmh-mode 1))
-
-;; dashboard
-(use-package dashboard
-  :ensure t
-  :config
-  (setq dashboard-startup-banner 'official)
-  (setq dashboard-center-content t)
-  (setq dashboard-items nil)
-  (dashboard-setup-startup-hook)
-  )
-
-;; need
-(use-package undo-fu
-  :ensure t
-  :config
-  (global-unset-key (kbd "C-z"))
-  (global-set-key (kbd "C-z")   'undo-fu-only-undo)
-  (global-set-key (kbd "C-S-z") 'undo-fu-only-redo))
-
-;; nice 
+;; swag
 (use-package rainbow-delimiters
   :ensure t
   :config
@@ -107,14 +89,14 @@
   :ensure t
   :config
   (setq company-idle-delay 99)
-  (global-company-mode t))
+  (global-company-mode t)
+  (global-set-key (kbd "C-c C-y") 'company-complete))
 
 ;; python bro
 (use-package anaconda-mode
   :ensure t
   :config
-  (add-hook 'python-mode-hook 'anaconda-mode)
-  )
+  (add-hook 'python-mode-hook 'anaconda-mode))
 
 ;; python bro
 (use-package company-anaconda
@@ -122,8 +104,7 @@
   :init (require 'rx)
   :after (company)
   :config
-  (add-to-list 'company-backends 'company-anaconda)
-  )
+  (add-to-list 'company-backends 'company-anaconda))
 
 ;; recentd
 (if (fboundp 'fido-mode)
@@ -175,7 +156,6 @@
           ido-create-new-buffer 'always
           ido-enable-flex-matching t)))
 
-;; hack gpt lol
 (defun my/kill-compilation-buffer-and-window ()
   "Kill the compilation buffer and its window."
   (interactive)
