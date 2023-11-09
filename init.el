@@ -39,7 +39,7 @@
              '("\\*compilation\\*"
                (display-buffer-reuse-window display-buffer-at-bottom)
                (window-height . 15)))                ;; compilation buffer at the bottom w/ adjustable height
-(load-theme 'wheatgrass t)                           ;; set theme
+;; (load-theme 'wheatgrass t)                           ;; set theme
 (recentf-mode 1)                                     ;; lets you C-x C-r for recent files
 (save-place-mode 1)
 (show-paren-mode 1)
