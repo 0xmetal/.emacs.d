@@ -41,7 +41,7 @@
              '("\\*compilation\\*"
                (display-buffer-reuse-window display-buffer-at-bottom)
                (window-height . 15)))                ;; compilation buffer at the bottom w/ adjustable height
-(load-theme 'wheatgrass t)                           ;; set theme
+;; (load-theme 'wheatgrass t)                           ;; set theme
 (recentf-mode 1)                                     ;; lets you C-x C-r for recent files
 (save-place-mode 1)
 (show-paren-mode 1)
@@ -65,6 +65,15 @@
 (eval-and-compile
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
+
+;; doom swag
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-solarized-dark t))
 
 ;; colors
 (use-package rainbow-delimiters
