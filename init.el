@@ -1,6 +1,4 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; metlx's emacs config ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; metlx's config
 
 ;; Defer garbage collection further back in the startup process
 (setq gc-cons-threshold most-positive-fixnum
@@ -41,7 +39,7 @@
              '("\\*compilation\\*"
                (display-buffer-reuse-window display-buffer-at-bottom)
                (window-height . 15)))                ;; compilation buffer at the bottom w/ adjustable height
-;; (load-theme 'wheatgrass t)                           ;; set theme
+(load-theme 'wheatgrass t)                           ;; set theme
 (recentf-mode 1)                                     ;; lets you C-x C-r for recent files
 (save-place-mode 1)
 (show-paren-mode 1)
@@ -51,7 +49,7 @@
 (scroll-bar-mode -1)                                 ;; swag
 (electric-pair-mode 1)                               ;; auto-closes parens ext...
 (ido-mode 1)                                         ;; populates buffers w/ options
-(set-face-attribute 'default nil :font "UbuntuMono Nerd Font" :height 160)
+;; (set-face-attribute 'default nil :font "UbuntuMono Nerd Font" :height 160)
 
 
 ;; repos & use-package
@@ -65,15 +63,6 @@
 (eval-and-compile
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
-
-;; doom swag
-(use-package doom-themes
-  :ensure t
-  :config
-  ;; Global settings (defaults)
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-solarized-dark t))
 
 ;; colors
 (use-package rainbow-delimiters
@@ -114,6 +103,15 @@
   :after (company)
   :config
   (add-to-list 'company-backends 'company-anaconda))
+
+;; swag
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-solarized-dark t))
 
 ;; recentd
 (if (fboundp 'fido-mode)
@@ -165,16 +163,28 @@
           ido-create-new-buffer 'always
           ido-enable-flex-matching t)))
 
-;; quit & quit comp buffer
 (defun my/kill-compilation-buffer-and-window ()
-  "Kill the compilation buffer and its window."
+  "Kill the compilation buffer, its window, and the Buffer List window."
   (interactive)
-  (let ((compilation-buffer (get-buffer "*compilation*")))
+  (let ((compilation-buffer (get-buffer "*compilation*"))
+        (buffer-list-buffer (get-buffer "*Buffer List*")))
     (when compilation-buffer
       (kill-buffer compilation-buffer)
+      (delete-window))
+    (when buffer-list-buffer
+      (kill-buffer buffer-list-buffer)
       (delete-window)))
   (keyboard-quit))
-
 (global-set-key (kbd "C-g") 'my/kill-compilation-buffer-and-window)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun my-switch-to-buffer-list ()
+  "Show the buffer list and switch to the buffer list buffer."
+  (interactive)
+  (list-buffers)
+  (other-window 1))
+(global-set-key (kbd "C-x C-b") 'my-switch-to-buffer-list)
+
+(defun custom/kill-this-buffer ()
+  "buffer quickscopin"
+  (interactive) (kill-buffer (current-buffer)))
+(global-set-key (kbd "C-x k") 'custom/kill-this-buffer)
