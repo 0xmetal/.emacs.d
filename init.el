@@ -165,7 +165,7 @@
           ido-create-new-buffer 'always
           ido-enable-flex-matching t)))
 
-;; kll comp buffer while retainin C-g functionallity
+;; quit & quit comp buffer
 (defun my/kill-compilation-buffer-and-window ()
   "Kill the compilation buffer and its window."
   (interactive)
