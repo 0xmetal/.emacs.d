@@ -52,18 +52,65 @@
 (ido-mode 1)                                         ;; populates buffers w/ options
 ;; (set-face-attribute 'default nil :font "UbuntuMono Nerd Font" :height 160)
 
-
-;; repos & use-package
+;; ELPA and MELPA are the package repositories from which we can install
 (require 'package)
-(add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(package-initialize)
+(setq package-archives
+      '(("melpa" . "https://melpa.org/packages/")
+	("elpa" . "https://elpa.gnu.org/packages/")))
+
+;; Make sure `use-package' is available and install it if it isn't already.
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-(eval-and-compile
-  (setq use-package-always-ensure t
-        use-package-expand-minimally t))
+
+;; python
+(use-package python
+  :config
+  ;; Remove guess indent python message
+  (setq python-indent-guess-indent-offset-verbose nil))
+
+;; nice auto completion
+(use-package company
+  :ensure t
+  :defer t
+  :custom
+  ;; Search other buffers with the same modes for completion instead of
+  ;; searching all other buffers.
+  (company-dabbrev-other-buffers t)
+  (company-dabbrev-code-other-buffers t)
+  ;; M-<num> to select an option according to its number.
+  (company-show-numbers t)
+  ;; Only 2 letters required for completion to activate.
+  (company-minimum-prefix-length 2)
+  ;; Do not downcase completions by default.
+  (company-dabbrev-downcase nil)
+  ;; Even if I write something with the wrong case,
+  ;; provide the correct casing.
+  (company-dabbrev-ignore-case t)
+  ;; company completion wait
+  (company-idle-delay 0.2)
+  ;; No company-mode in shell & eshell
+  (company-global-modes '(not eshell-mode shell-mode))
+  ;; Use company with text and programming modes.
+    :hook ((text-mode . company-mode)
+           (prog-mode . company-mode)))
+
+;;; <EGLOT> configuration, pick this or the LSP configuration but not both.
+;; Using Eglot with Pyright, a language server for Python.
+;; See: https://github.com/joaotavora/eglot.
+(use-package eglot
+  :ensure t
+  :defer t
+  :hook (python-mode . eglot-ensure))
+
+;; nice syntax highlighting
+(use-package tree-sitter
+  :ensure t
+  :config (global-tree-sitter-mode)
+  :init (add-hook 'python-mode-hook #'tree-sitter-hl-mode))
+
+(use-package tree-sitter-langs
+  :ensure t)
 
 ;; colors
 (use-package rainbow-delimiters
@@ -82,28 +129,6 @@
   :ensure t
   :config
   (which-key-mode))
-
-;; auto-completion
-(use-package company
-  :ensure t
-  :config
-  (setq company-idle-delay 99)
-  (global-company-mode t)
-  (global-set-key (kbd "C-c C-y") 'company-complete))
-
-;; python support
-(use-package anaconda-mode
-  :ensure t
-  :config
-  (add-hook 'python-mode-hook 'anaconda-mode))
-
-;; python support
-(use-package company-anaconda
-  :ensure t
-  :init (require 'rx)
-  :after (company)
-  :config
-  (add-to-list 'company-backends 'company-anaconda))
 
 ;; swag
 (use-package doom-themes
