@@ -36,6 +36,7 @@
 (setq scroll-step            1
       scroll-conservatively  10000)                  ;; smooth scrollin
 (setq inhibit-startup-message t)
+(setq eglot-ignored-server-capabilities '(:hoverProvider))
 (add-to-list 'display-buffer-alist
              '("\\*compilation\\*"
                (display-buffer-reuse-window display-buffer-at-bottom)
